@@ -1,8 +1,8 @@
 const express = require('express');
 const helmet = require('helmet');
 const cors = require('cors');
-const router = require('./routes/routes.js');
 const productRoute = require('./routes/productRoute.js');
+const userRoute = require('./routes/userRoute.js');
 const database = require('./config/database');
 const app = express();
 
@@ -11,7 +11,6 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(helmet());
-app.use(router);
 
 const corsOptions = {
     origin: [
@@ -30,6 +29,7 @@ app.use(cors(corsOptions));  // Apply the CORS middleware
 app.options('*', cors(corsOptions)); // Handle preflight requests
 
 app.use("/api/product", productRoute)
+app.use("/api/user", userRoute)
 
 app.listen(PORT, (err) => {
     if (err) throw err;
