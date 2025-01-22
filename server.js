@@ -1,7 +1,8 @@
 const express = require('express');
 const helmet = require('helmet');
 const cors = require('cors');
-const router = require('./routes/routes.js');
+const router = require('./routes/userRoute.js');
+const productRoute = require('./routes/productRoute.js');
 const database = require('./config/database');
 const app = express();
 
@@ -27,6 +28,8 @@ const corsOptions = {
 
 app.use(cors(corsOptions));  // Apply the CORS middleware
 app.options('*', cors(corsOptions)); // Handle preflight requests
+
+app.use("/api/product", productRoute)
 
 app.listen(PORT, (err) => {
     if (err) throw err;

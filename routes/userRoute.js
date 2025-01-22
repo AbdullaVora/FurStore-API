@@ -11,7 +11,6 @@ router.post('/api/userUpdate:id', updateUser);
 router.post('/api/userDelete:id', deleteUser);
 
 router.post('/api/product/addProduct', addProduct);
-
 router.get('/api/product/getProducts', getProducts);
 router.put('/api/product/updateProduct/:id', updateProduct);
 router.delete('/api/product/deleteProduct/:id', deleteProduct);
