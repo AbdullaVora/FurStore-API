@@ -1,7 +1,7 @@
 const express = require('express');
 const helmet = require('helmet');
 const cors = require('cors');
-const router = require('./routes/userRoute.js');
+const router = require('./routes/routes.js');
 const productRoute = require('./routes/productRoute.js');
 const database = require('./config/database');
 const app = express();
@@ -19,7 +19,7 @@ const corsOptions = {
         'http://localhost:5174', // Local React App (dev)
         'http://localhost:3000',  // Another Local React App (dev)
         'https://furn-store-xi.vercel.app',
-        'https://e-commerce-admin-beta-ten.vercel.app'
+        'https://e-commerce-admin-pearl-gamma.vercel.app'
     ],
     methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
     allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
