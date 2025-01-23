@@ -1,12 +1,13 @@
 const mongoose = require('mongoose');
+require('dotenv').config();
 
 const database = async () => {
-  const DB_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/furstore';
+  const DB_URI = process.env.MONGO_URI;
   try {
-    await mongoose.connect(DB_URI, { useNewUrlParser: true, useUnifiedTopology: true, serverSelectionTimeoutMS: 3000 });
+    await mongoose.connect(DB_URI);
     console.log('Database connected successfully');
   } catch (error) {
-    console.error('Database connection error:', error);
+    console.error('Database connection error:', error.message);
   }
 };
 
