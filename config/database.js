@@ -1,17 +1,13 @@
 const mongoose = require('mongoose');
-require('dotenv').config();
 
 const database = async () => {
-    try {
-        const uri = process.env.MONGO_URI;
-        if (!uri) {
-            throw new Error('MongoDB URI is not defined in environment variables');
-        }
-        await mongoose.connect(uri);
-        console.log('MongoDB connected successfully');
-    } catch (error) {
-        console.log('Error connecting to MongoDB:', error.message);
-    }
-}
+  const DB_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/furstore';
+  try {
+    await mongoose.connect(DB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+    console.log('Database connected successfully');
+  } catch (error) {
+    console.error('Database connection error:', error);
+  }
+};
 
 module.exports = database;
