@@ -31,6 +31,10 @@ app.options('*', cors(corsOptions)); // Handle preflight requests
 app.use("/api/product", productRoute)
 app.use("/api/user", userRoute)
 
+app.get('/', (req, res) => {
+    res.send("FurStore API is running perfect")
+})
+
 app.listen(PORT, (err) => {
     if (err) throw err;
     else database()
