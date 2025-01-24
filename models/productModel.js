@@ -10,7 +10,7 @@ const productSchema = new mongoose.Schema({
     description: String,
     price: String,
     quantity: String,
-    image: String,
+    image: [String],
     createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now },
 })
